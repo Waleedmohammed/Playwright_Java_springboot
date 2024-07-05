@@ -19,6 +19,8 @@
 		<java.version>17</java.version>
 		<webdrivermanager.version>5.7.0</webdrivermanager.version>
 		<cucumber.version>7.18.0</cucumber.version>
+		<testng.version>7.7.0</testng.version>
+		<extentReport.version>2.41.2</extentReport.version>
 	</properties>
 
 	<dependencies>
@@ -61,6 +63,17 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>5.0.9</version>
@@ -89,6 +102,12 @@
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>${cucumber.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentReport.version}</version>
 		</dependency>
 
 	</dependencies>
