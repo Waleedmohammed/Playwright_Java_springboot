@@ -1,4 +1,4 @@
-Feature: Search
+Feature: Privathaftpflicht calculator and tariff search pages
 
 AS A Verivox user
 I WANT TO use the Privathaftpflicht calculator and tariff search pages
