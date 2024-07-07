@@ -14,5 +14,5 @@ SO THAT I can select the best available tariff based on price
     And I click the Jetzt vergleichen button
     Then I should see a page that lists the available tariffs for my selection
     Examples:
-      | age | familiestand                  |birthDate                  |postalCode   |
-      | 36  | "Familie ohne Kinder"         |"21.09.1988"               |"13088"      |
+      | age | familiestand           | birthDate    | postalCode |
+      | 36  | "Familie ohne Kinder"  |"21.09.1988"  | "13088"    |
