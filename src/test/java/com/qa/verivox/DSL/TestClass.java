@@ -1,21 +1,21 @@
-package com.qa.verivox;
+package com.qa.verivox.DSL;
 
-import com.qa.verivox.pages.Home.MainPage;
+import com.qa.verivox.pages.Home.HomePage;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
-import static com.qa.verivox.pages.Home.MainPage.getHomePage;
+import static com.qa.verivox.pages.Home.HomePage.getHomePage;
 
 @Slf4j
-public class TestClass extends GuiTestBase {
+public class TestClass extends TestBase {
 
-    MainPage home;
-    //= getHomePage(super.driver);
+    HomePage home;
 
     @Test
     public void searchWithString() throws Exception {
 
-//        home = getHomePage(super.driver);
+        home = getHomePage(super.driver)
+                .act().acceptCookies();
 //
 //        home.act()
 //                .acceptCookies()

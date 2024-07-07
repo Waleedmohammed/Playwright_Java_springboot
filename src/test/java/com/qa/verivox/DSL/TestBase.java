@@ -1,4 +1,4 @@
-package com.qa.verivox;
+package com.qa.verivox.DSL;
 
 import com.qa.verivox.core.conf.AppProperties;
 import com.qa.verivox.core.conf.DriverConfig;
@@ -18,7 +18,7 @@ import org.testng.annotations.*;
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public abstract class GuiTestBase extends AbstractTestNGSpringContextTests {
+public abstract class TestBase extends AbstractTestNGSpringContextTests {
 
     @Autowired
     protected DriverConfig driverConfig;
@@ -27,7 +27,7 @@ public abstract class GuiTestBase extends AbstractTestNGSpringContextTests {
     protected AppProperties appProperties;
 
     @Autowired
-    DriverManager driverManager;
+    protected DriverManager driverManager;
 
     public Driver driver;
 
@@ -40,7 +40,7 @@ public abstract class GuiTestBase extends AbstractTestNGSpringContextTests {
     }
 
     // take screenshot when test case fail and add it in the Screenshot folder
-    @AfterMethod(alwaysRun = true)
+   /* @AfterMethod(alwaysRun = true)
     public void screenshotOnFailure(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
             System.out.println("Failed!");
@@ -54,5 +54,5 @@ public abstract class GuiTestBase extends AbstractTestNGSpringContextTests {
     public void afterAll() {
         driverManager.quitAllDrivers();
         driver.stopDriverService();
-    }
+    }*/
 }

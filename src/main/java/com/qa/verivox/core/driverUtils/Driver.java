@@ -41,6 +41,8 @@ public abstract class Driver {
     private WebDriverWait wait;
     private WebElement elementToBePresent;
 
+    private WebElement element;
+
     public Driver(DriverConfig driverConfig) {
         this.driverConfig = driverConfig;
     }
@@ -99,6 +101,12 @@ public abstract class Driver {
         log.info("{} opened", url);
     }
 
+    public String getTitle() {
+        String title = driver.getTitle();
+        log.info("Title is {}", title);
+        return title;
+    }
+
     public void maximize() {
         driver.manage().window().maximize();
         log.info("Browser maximized");
@@ -140,9 +148,12 @@ public abstract class Driver {
         return new Element(driver.findElement(by), this);
     }
 
+
     public List<Element> findElements(By by) {
 
         List<WebElement> elements = driver.findElements(by);
+
+        log.info("There are {} elements found with xpth {}", elements.size(), by);
 
         return elements.stream()
                 .map(element -> new Element(element, this))
@@ -181,10 +192,10 @@ public abstract class Driver {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void waitForVisibilityOfElementLocated(By locator) throws InterruptedException {
+    public WebElement waitForVisibilityOfElementLocated(By locator) throws InterruptedException {
         Thread.sleep(3000);
         wait = new WebDriverWait(driver, Duration.ofSeconds(driverConfig.getExplicitlyWait()));
-        elementToBePresent = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public void implicitWait(int timeoutInSeconds) {

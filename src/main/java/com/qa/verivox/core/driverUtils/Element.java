@@ -2,8 +2,10 @@ package com.qa.verivox.core.driverUtils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 @Slf4j
 public class Element {
@@ -60,6 +62,17 @@ public class Element {
         } catch (Exception e) {
             log.error("Cursor not moved to element: " + element);
             throw new Exception("Cannot move cursor " + element);
+        }
+    }
+
+    public void selectValueFromDDL(String value) throws Exception {
+        try {
+            Select select = new Select(element);
+            select.selectByVisibleText(value);
+            log.info("Value {} selected from DDL {} ", value, element);
+        } catch (Exception e) {
+            log.info("Value {} can not be selected from DDL {} ", value, element);
+            throw new Exception("Cannot select value from Drop Down List  " + element);
         }
     }
 

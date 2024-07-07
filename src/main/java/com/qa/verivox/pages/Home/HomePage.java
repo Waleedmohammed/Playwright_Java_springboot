@@ -7,44 +7,39 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
+import java.time.Duration;
+
 @Slf4j
-public class MainPage extends LoadableComponent<MainPage> {
+public class HomePage extends LoadableComponent<HomePage> {
 
-    private MainActController act;
-
-    private MainVerifyController verify;
+    private HomeActController act;
+    private HomeVerifyController verify;
 
     protected Driver driver;
+    protected By acceptCookiesBtn = By.id("uc-btn-accept-banner");
 
-    protected By searchTxtBox = By.xpath("//textarea[@class='gLFyf']");
 
-    protected By acceptCookies = By.xpath("//div[@class='QS5gu sy4vM']");
-
-    protected By searchBtn = By.xpath("//input[@name='btnK']");
-
-    protected By logo = By.xpath("//*[@id=\"logo\"]/img");
-
-    MainPage(Driver driver) {
+    HomePage(Driver driver) {
         this.driver = driver;
     }
 
     // it is private constructor to force getting page object via static method getHomePage
-    private MainPage(Driver driver, MainActController act, MainVerifyController verify) {
+    private HomePage(Driver driver, HomeActController act, HomeVerifyController verify) {
         this.driver = driver;
         this.act = act;
         this.verify = verify;
         PageFactory.initElements(driver.getWebDriver(), this);
     }
 
-    public static MainPage getHomePage(Driver driver) {
-        return new MainPage(driver, new MainActController(driver), new MainVerifyController(driver));
+    public static HomePage getHomePage(Driver driver) {
+        return new HomePage(driver, new HomeActController(driver), new HomeVerifyController(driver)).get();
     }
 
-    public MainActController act() {
+    public HomeActController act() {
         return act;
     }
 
-    public MainVerifyController verify() {
+    public HomeVerifyController verify() {
         return verify;
     }
 
@@ -56,7 +51,8 @@ public class MainPage extends LoadableComponent<MainPage> {
     @Override
     protected void isLoaded() throws Error {
         Assertions.assertAll(
-                () -> driver.findElement(By.xpath("//textarea[@class='gLFyf']")).verifyDisplayed(true)
+                () -> driver.waitForLoading(Duration.ofSeconds(60)),
+                () -> driver.findElement(acceptCookiesBtn).verifyDisplayed(true)
         );
         log.info("Main Page Loaded Successfully");
     }

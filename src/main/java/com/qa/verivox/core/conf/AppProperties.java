@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "test.app")
+@ConfigurationProperties(prefix = "app")
 public class AppProperties {
 
     private String testEnv;
@@ -14,8 +14,4 @@ public class AppProperties {
     private String appPassword;
     private String appUserName;
     private String dataSourcePath;
-
-    private String baseUrl;
-    private String token;
-
 }
