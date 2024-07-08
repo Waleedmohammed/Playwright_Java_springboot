@@ -1,7 +1,6 @@
 package com.qa.verivox.cucumber.stepDefinitions;
 
 import com.qa.verivox.core.conf.AppProperties;
-import com.qa.verivox.core.conf.DriverConfig;
 import com.qa.verivox.core.driverUtils.Driver;
 import com.qa.verivox.core.driverUtils.DriverManager;
 import com.qa.verivox.pages.Home.HomePage;
@@ -28,10 +27,7 @@ import static com.qa.verivox.pages.privathaftpflicht.PrivathaftpflichtPage.getpr
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class StepDefinitions {
-
-    @Autowired
-    protected DriverConfig driverConfig;
+public class DSLCalculatorStepDefinitions {
 
     @Autowired
     protected AppProperties appProperties;
@@ -40,31 +36,32 @@ public class StepDefinitions {
     protected DriverManager driverManager;
 
     public Driver driver;
+
     HomePage homePage;
     HeaderPage header;
     PrivathaftpflichtPage privathaftpflichtPage;
 
-    @Before
+    @Before("@Calculator")
     public void setUp() {
         driver = driverManager.getDriver();
         driver.start();
+        driver.open(appProperties.getAppUrl());
+        driver.maximize();
+
     }
 
-    @After
+    @After("@Calculator")
     public void teardown() {
         driver.quit();
         driverManager.quitAllDrivers();
         driver.stopDriverService();
     }
 
+
     @Given("that I can open www.verivox.de")
     public void that_i_can_open_www_verivox_de() throws Exception {
 
-        driver.open(appProperties.getAppUrl());
         homePage = getHomePage(driver);
-
-        driver.maximize();
-
         homePage.act().
                 acceptCookies();
     }

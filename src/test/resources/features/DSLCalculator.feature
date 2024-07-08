@@ -1,9 +1,10 @@
-Feature: Privathaftpflicht calculator and tariff search pages
+Feature: Privathaftpflicht calculator
 
 AS A Verivox user
 I WANT TO use the Privathaftpflicht calculator and tariff search pages
 SO THAT I can select the best available tariff based on price
 
+  @Calculator
   Scenario Outline: Verify the DSL calculator
     Given that I can open www.verivox.de
     When I navigate to Versicherungen and select Privathaftpflicht

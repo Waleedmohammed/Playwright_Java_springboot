@@ -21,6 +21,10 @@
 		<cucumber.version>7.18.0</cucumber.version>
 		<testng.version>7.7.0</testng.version>
 		<extentReport.version>2.41.2</extentReport.version>
+		<maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
+		<maven.surefire.plugin.version>3.2.3</maven.surefire.plugin.version>
+		<maven.compiler.source.version>17</maven.compiler.source.version>
+		<maven.compiler.target.version>17</maven.compiler.target.version>
 	</properties>
 
 	<dependencies>
@@ -106,6 +110,13 @@
 
 		<dependency>
 			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-spring</artifactId>
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
@@ -143,6 +154,28 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${maven.compiler.source.version}</source>
+					<target>${maven.compiler.target.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>-->
+
 		</plugins>
 	</build>
 
