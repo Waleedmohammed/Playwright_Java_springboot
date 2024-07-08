@@ -27,7 +27,7 @@ import static com.qa.verivox.pages.privathaftpflicht.PrivathaftpflichtPage.getpr
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class SearchStepDeinitions {
+public class SearchSteps {
     @Autowired
     protected AppProperties appProperties;
 
