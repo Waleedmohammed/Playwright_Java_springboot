@@ -51,7 +51,6 @@ public class SearchSteps {
     @Before("@Search")
     public void setUp() {
         configuredSearchResults = appProperties.getSearchresults();
-        log.info("I have *******    " + configuredSearchResults);
         driver = driverManager.getDriver();
         driver.start();
         driver.open(appProperties.getAppUrl());
