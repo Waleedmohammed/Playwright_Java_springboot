@@ -1,0 +1,232 @@
+    waleed.elbarbary@GSMTHEUwaleed QAChallenge_Verivox % mvn clean test
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.qa:QAChallenge_Verivox >---------------------
+[INFO] Building QAChallenge_Verivox 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.3.2:clean (default-clean) @ QAChallenge_Verivox ---
+[INFO] Deleting /Users/waleed.elbarbary/IdeaProjects/QAChallenge_Verivox/target
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ QAChallenge_Verivox ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.13.0:compile (default-compile) @ QAChallenge_Verivox ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 24 source files with javac [debug parameters release 17] to target/classes
+[INFO] /Users/waleed.elbarbary/IdeaProjects/QAChallenge_Verivox/src/main/java/com/qa/verivox/core/driverUtils/Driver.java: /Users/waleed.elbarbary/IdeaProjects/QAChallenge_Verivox/src/main/java/com/qa/verivox/core/driverUtils/Driver.java uses or overrides a deprecated API.
+[INFO] /Users/waleed.elbarbary/IdeaProjects/QAChallenge_Verivox/src/main/java/com/qa/verivox/core/driverUtils/Driver.java: Recompile with -Xlint:deprecation for details.
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ QAChallenge_Verivox ---
+[INFO] Copying 4 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ QAChallenge_Verivox ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 8 source files with javac [debug parameters release 17] to target/test-classes
+[INFO]
+[INFO] --- surefire:3.2.5:test (default-test) @ QAChallenge_Verivox ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.qa.verivox.QaChallengeVerivoxApplicationTests
+22:00:44.317 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.qa.verivox.QaChallengeVerivoxApplicationTests]: QaChallengeVerivoxApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:00:44.363 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.qa.verivox.QaChallengeVerivoxApplication for test class com.qa.verivox.QaChallengeVerivoxApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.1)
+
+2024-07-09T22:00:44.529+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.QaChallengeVerivoxApplicationTests : Starting QaChallengeVerivoxApplicationTests using Java 17.0.10 with PID 53182 (started by waleed.elbarbary in /Users/waleed.elbarbary/IdeaProjects/QAChallenge_Verivox)
+2024-07-09T22:00:44.531+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.QaChallengeVerivoxApplicationTests : The following 2 profiles are active: "chrome", "chrome-test"
+2024-07-09T22:00:45.071+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.QaChallengeVerivoxApplicationTests : Started QaChallengeVerivoxApplicationTests in 0.649 seconds (process running for 1.181)
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.257 s -- in com.qa.verivox.QaChallengeVerivoxApplicationTests
+[INFO] Running com.qa.verivox.cucumber.runner.RunCucumberTest
+2024-07-09T22:00:45.685+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qa.verivox.QaChallengeVerivoxApplicationTests]: QaChallengeVerivoxApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-07-09T22:00:45.686+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qa.verivox.QaChallengeVerivoxApplication for test class com.qa.verivox.QaChallengeVerivoxApplicationTests
+
+@Calculator
+Scenario Outline: Verify the DSL calculator                                  # features/DSLCalculator.feature:19
+2024-07-09T22:00:45.717+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Starting driver session...
+2024-07-09T22:00:45.879+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 126.0.6478.126 (resolved driver for Chrome 126)
+2024-07-09T22:00:45.888+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/waleed.elbarbary/.cache/selenium/chromedriver/mac-arm64/126.0.6478.126/chromedriver
+2024-07-09T22:00:45.937+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : started DriverService started
+2024-07-09T22:00:45.937+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.c.driverUtils.web.WebChromeDriver  : Service Started at http://localhost:5885
+2024-07-09T22:00:45.948+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] o.o.s.r.t.o.OpenTelemetryTracer          : Using OpenTelemetry for tracing
+2024-07-09T22:00:46.964+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : driver initialized
+2024-07-09T22:00:47.359+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Browser maximized
+2024-07-09T22:00:47.360+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Deleting all the cookies
+2024-07-09T22:00:47.795+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : https://www.verivox.de/ opened
+2024-07-09T22:00:47.799+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Browser maximized
+2024-07-09T22:00:50.922+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> id: uc-btn-accept-banner] is succesfully clicked
+  Given that I can open www.verivox.de                                       # com.qa.verivox.cucumber.stepDefinitions.CalculatorSteps.that_i_can_open_www_verivox_de()
+2024-07-09T22:00:51.140+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Cursor moved to element: [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> xpath: //a[@href='/versicherungen/' and @class='page-navigation-text icn-a-angle-right-outlined icn-shield-outlined']]
+2024-07-09T22:00:51.784+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> xpath: //a[@href='/privathaftpflicht/' and @class='page-navigation-link']] is succesfully clicked
+  When I navigate to Versicherungen and select Privathaftpflicht             # com.qa.verivox.cucumber.stepDefinitions.CalculatorSteps.i_navigate_to_versicherungen_and_select_privathaftpflicht()
+2024-07-09T22:00:51.849+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Value Familie ohne Kinder selected from DDL [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> xpath: //select[@name='situationGroup']]
+2024-07-09T22:00:51.963+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Entered value: 36 on [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> name: age]
+2024-07-09T22:00:52.556+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> xpath: //button[@class='page-button' and @type='submit']] is succesfully clicked
+  And I enter age as 36 and select Familiestand as "Familie ohne Kinder"     # com.qa.verivox.cucumber.stepDefinitions.CalculatorSteps.i_enter_my_age_and_single_ohne_kinder(int,java.lang.String)
+2024-07-09T22:00:53.631+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> xpath: //*[@id='prestep_insureGroup']] is displayed
+2024-07-09T22:00:53.780+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> xpath: //*[@class='ds-input__container']/input[@type='text']] is displayed
+  Then I go to the Privathaftpflicht personal information page               # com.qa.verivox.cucumber.stepDefinitions.CalculatorSteps.i_go_to_the_privathaftpflicht_personal_information_page()
+2024-07-09T22:00:53.859+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Entered value: 21.09.1988 on [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> xpath: //*[@class='ds-input__container']/input[@type='text']]
+  And I enter my birthdate "21.09.1988"                                      # com.qa.verivox.cucumber.stepDefinitions.CalculatorSteps.i_enter_my_birthdate(java.lang.String)
+2024-07-09T22:00:53.929+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Entered value: 13088 on [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> xpath: //*[@id='prestep_postcode-input' and @type='tel']]
+  And I enter my zip code "13088"                                            # com.qa.verivox.cucumber.stepDefinitions.CalculatorSteps.i_enter_my_zip_code_use(java.lang.String)
+2024-07-09T22:00:56.997+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (60b2f583c6210df6505ba90a701fb673)] -> xpath: .//button[contains(text(),'Jetzt vergleichen')]] is succesfully clicked
+  And I click the Jetzt vergleichen button                                   # com.qa.verivox.cucumber.stepDefinitions.CalculatorSteps.i_click_the_jetzt_vergleichen_button()
+2024-07-09T22:01:05.982+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : There are 5 elements found with xpth By.xpath: //div[@class='product-container']
+  Then I should see a page that lists the available tariffs for my selection # com.qa.verivox.cucumber.stepDefinitions.CalculatorSteps.i_should_see_a_page_that_lists_the_available_tariffs_for_my_selection()
+2024-07-09T22:01:06.172+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Screenshot taken and stored as : './Screenshots/Calculator_ch.png'
+
+    Embedding Verify the DSL calculator [image/png 355264 bytes]
+
+2024-07-09T22:01:06.240+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Driver quit
+2024-07-09T22:01:06.240+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Driver quit
+2024-07-09T22:01:06.240+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Driver quit
+2024-07-09T22:01:06.373+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : DriverService stopped
+2024-07-09T22:01:06.379+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qa.verivox.QaChallengeVerivoxApplicationTests]: QaChallengeVerivoxApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-07-09T22:01:06.380+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qa.verivox.QaChallengeVerivoxApplication for test class com.qa.verivox.QaChallengeVerivoxApplicationTests
+
+@Search
+Scenario: Load multiple tariff result pages                                                                                                            # features/TarrifSearchResults.feature:7
+2024-07-09T22:01:06.388+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.c.stepDefinitions.SearchSteps      : I have *******    20
+2024-07-09T22:01:06.388+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Starting driver session...
+2024-07-09T22:01:06.393+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 126.0.6478.126 (resolved driver for Chrome 126)
+2024-07-09T22:01:06.395+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/waleed.elbarbary/.cache/selenium/chromedriver/mac-arm64/126.0.6478.126/chromedriver
+2024-07-09T22:01:06.417+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : started DriverService started
+2024-07-09T22:01:06.417+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.c.driverUtils.web.WebChromeDriver  : Service Started at http://localhost:43778
+2024-07-09T22:01:06.995+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : driver initialized
+2024-07-09T22:01:07.368+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Browser maximized
+2024-07-09T22:01:07.368+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Deleting all the cookies
+2024-07-09T22:01:07.990+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : https://www.verivox.de/ opened
+2024-07-09T22:01:07.992+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Browser maximized
+2024-07-09T22:01:11.100+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> id: uc-btn-accept-banner] is succesfully clicked
+2024-07-09T22:01:11.266+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Cursor moved to element: [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@href='/versicherungen/' and @class='page-navigation-text icn-a-angle-right-outlined icn-shield-outlined']]
+2024-07-09T22:01:16.454+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@href='/privathaftpflicht/' and @class='page-navigation-link']] is succesfully clicked
+2024-07-09T22:01:16.513+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Value Familie ohne Kinder selected from DDL [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //select[@name='situationGroup']]
+2024-07-09T22:01:16.614+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Entered value: 36 on [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> name: age]
+2024-07-09T22:01:17.241+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //button[@class='page-button' and @type='submit']] is succesfully clicked
+2024-07-09T22:01:17.966+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Entered value: 21.09.1988 on [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //*[@class='ds-input__container']/input[@type='text']]
+2024-07-09T22:01:18.032+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Entered value: 13088 on [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //*[@id='prestep_postcode-input' and @type='tel']]
+2024-07-09T22:01:21.094+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: .//button[contains(text(),'Jetzt vergleichen')]] is succesfully clicked
+  Given I applied tariff calculation criteria with age : 36 , Birthdate : "21.09.1988" , Familiestand : "Familie ohne Kinder" and PostalCode : "13088" # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iAppliedTariffCalculationCriteriaWithAgeBirthdateFamiliestandAndPostalCode(int,java.lang.String,java.lang.String,java.lang.String)
+2024-07-09T22:01:32.543+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : There are 5 elements found with xpth By.xpath: //div[@class='product-container']
+  Given I display the tariff Result List page                                                                                                          # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iDisplayTheTariffResultListPage()
+2024-07-09T22:01:32.557+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //filtered-products-hint/span] is displayed
+2024-07-09T22:01:32.585+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //filtered-products-hint/span] found with gettext String: 161 Tarife von 32,90 € bis 125,98 €
+2024-07-09T22:01:32.585+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.common.SearchResult.SearchPage   : Total number of results for given search criteria are:161
+  Then I should see the total number of available tariffs listed above all the result list                                                             # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iShouldSeeTheTotalNumberOfAvailableTariffsListedAboveAllTheResultList()
+  When I scroll to the end of the result list page                                                                                                     # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iScrollToTheEndOfTheResultListPage()
+2024-07-09T22:01:32.730+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : There are 20 elements found with xpth By.xpath: //div[@class='product-list']/product
+2024-07-09T22:01:32.731+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.c.S.SearchVerifyController       : Displayed Products count is 20
+2024-07-09T22:01:32.731+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.c.S.SearchVerifyController       : Expected Products count is 20
+  Then I should see only the first configured results count tariffs displayed                                                                          # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iShouldSeeOnlyTheFirstTariffsDisplayed()
+2024-07-09T22:01:32.755+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //filtered-products-hint/span] found with gettext String: 161 Tarife von 32,90 € bis 125,98 €
+2024-07-09T22:01:32.755+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.common.SearchResult.SearchPage   : Total number of results for given search criteria are:161
+2024-07-09T22:01:32.823+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@class='button load-more-button']] is succesfully clicked
+  When I click on the button labeled 20 weitere Tarife laden                                                                                           # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iClickOnTheButtonLabeledWeitereTarifeLaden()
+2024-07-09T22:01:35.870+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : There are 40 elements found with xpth By.xpath: //div[@class='product-list']/product
+2024-07-09T22:01:35.871+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.c.S.SearchVerifyController       : Displayed Products count is 40
+2024-07-09T22:01:35.871+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.c.S.SearchVerifyController       : Expected Products count is 40
+  Then I should see the next configured results count tariffs displayed                                                                                # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iShouldSeeTheNextTariffsDisplayed()
+2024-07-09T22:01:35.871+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.common.SearchResult.SearchPage   : All 161 Products Should be displayed after clicking on load More button 7 clicks
+2024-07-09T22:01:36.149+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@class='button load-more-button']] is succesfully clicked
+2024-07-09T22:01:39.463+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@class='button load-more-button']] is succesfully clicked
+2024-07-09T22:01:42.761+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@class='button load-more-button']] is succesfully clicked
+2024-07-09T22:01:46.049+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@class='button load-more-button']] is succesfully clicked
+2024-07-09T22:01:49.352+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@class='button load-more-button']] is succesfully clicked
+2024-07-09T22:01:52.771+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@class='button load-more-button']] is succesfully clicked
+2024-07-09T22:01:56.228+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (20946c7d6e3e52d4eb552be87071cac0)] -> xpath: //a[@class='button load-more-button']] is succesfully clicked
+2024-07-09T22:01:59.268+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : There are 161 elements found with xpth By.xpath: //div[@class='product-list']/product
+2024-07-09T22:01:59.268+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.c.S.SearchVerifyController       : Displayed Products count is 161
+2024-07-09T22:01:59.268+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.c.S.SearchVerifyController       : Total Products count is 161
+  And I can continue to load any additional tariffs until all tariffs have been displayed                                                              # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iCanContinueToLoadAnyAdditionalTariffsUntilAllTariffsHaveBeenDisplayed()
+2024-07-09T22:02:19.516+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Screenshot taken and stored as : './Screenshots/Search_ch.png'
+
+    Embedding Load multiple tariff result pages [image/png 494227 bytes]
+
+2024-07-09T22:02:19.581+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Driver quit
+2024-07-09T22:02:19.581+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Driver quit
+2024-07-09T22:02:19.581+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Driver quit
+2024-07-09T22:02:19.796+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : DriverService stopped
+2024-07-09T22:02:19.798+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qa.verivox.QaChallengeVerivoxApplicationTests]: QaChallengeVerivoxApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-07-09T22:02:19.798+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qa.verivox.QaChallengeVerivoxApplication for test class com.qa.verivox.QaChallengeVerivoxApplicationTests
+
+@Search
+Scenario: Verify offer details for a selected tariff                                                                                                   # features/TarrifSearchResults.feature:18
+2024-07-09T22:02:19.804+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.c.stepDefinitions.SearchSteps      : I have *******    20
+2024-07-09T22:02:19.804+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Starting driver session...
+2024-07-09T22:02:19.808+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 126.0.6478.126 (resolved driver for Chrome 126)
+2024-07-09T22:02:19.810+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/waleed.elbarbary/.cache/selenium/chromedriver/mac-arm64/126.0.6478.126/chromedriver
+2024-07-09T22:02:19.833+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : started DriverService started
+2024-07-09T22:02:19.833+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.c.driverUtils.web.WebChromeDriver  : Service Started at http://localhost:47547
+2024-07-09T22:02:20.602+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : driver initialized
+2024-07-09T22:02:20.973+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Browser maximized
+2024-07-09T22:02:20.973+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Deleting all the cookies
+2024-07-09T22:02:21.379+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : https://www.verivox.de/ opened
+2024-07-09T22:02:21.532+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Browser maximized
+2024-07-09T22:02:24.637+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> id: uc-btn-accept-banner] is succesfully clicked
+2024-07-09T22:02:24.842+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Cursor moved to element: [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: //a[@href='/versicherungen/' and @class='page-navigation-text icn-a-angle-right-outlined icn-shield-outlined']]
+2024-07-09T22:02:25.488+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: //a[@href='/privathaftpflicht/' and @class='page-navigation-link']] is succesfully clicked
+2024-07-09T22:02:25.548+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Value Familie ohne Kinder selected from DDL [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: //select[@name='situationGroup']]
+2024-07-09T22:02:25.649+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Entered value: 36 on [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> name: age]
+2024-07-09T22:02:26.265+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: //button[@class='page-button' and @type='submit']] is succesfully clicked
+2024-07-09T22:02:27.424+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Entered value: 21.09.1988 on [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: //*[@class='ds-input__container']/input[@type='text']]
+2024-07-09T22:02:27.485+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : Entered value: 13088 on [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: //*[@id='prestep_postcode-input' and @type='tel']]
+2024-07-09T22:02:30.550+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: .//button[contains(text(),'Jetzt vergleichen')]] is succesfully clicked
+  Given I applied tariff calculation criteria with age : 36 , Birthdate : "21.09.1988" , Familiestand : "Familie ohne Kinder" and PostalCode : "13088" # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iAppliedTariffCalculationCriteriaWithAgeBirthdateFamiliestandAndPostalCode(int,java.lang.String,java.lang.String,java.lang.String)
+2024-07-09T22:02:39.302+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : There are 5 elements found with xpth By.xpath: //div[@class='product-container']
+  Given I display the tariff Result List page                                                                                                          # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iDisplayTheTariffResultListPage()
+2024-07-09T22:02:39.316+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: (.//div[contains(@class,'product-group product-group-action')])[2]//preceding-sibling::div[@class='price']] is displayed
+2024-07-09T22:02:39.342+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: (.//div[contains(@class,'product-group product-group-action')])[2]//preceding-sibling::div[@class='price']] found with gettext String: 41,67 €
+2024-07-09T22:02:39.342+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.c.S.SearchVerifyController       : Price for Product Number 1 is 41,67 €
+  Then I should see the tariff price of the 1 tariff                                                                                                   # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iShouldSeeTheTariffPriceOfTheTariff(int)
+2024-07-09T22:02:42.406+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: (.//button[@class='button secondary button-toggle'])[2]] is succesfully clicked
+  When I open tariff 1 details                                                                                                                         # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iOpenTariffDetails(int)
+2024-07-09T22:02:43.938+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.q.v.p.c.S.SearchVerifyController       : Visible Product Details Info are [Wichtigste Leistungen, Allgemein, Tätigkeiten und Hobbys, Miete & Immobilien, Dokumente]
+  Then I see tariff details sections:                                                                                                                  # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iSeeTariffDetails(java.util.List<java.lang.String>)
+    | Wichtigste Leistungen  |
+    | Allgemein              |
+    | Tätigkeiten und Hobbys |
+  And I see tariff details sections:                                                                                                                   # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iSeeTariffDetails(java.util.List<java.lang.String>)
+    | Miete & Immobilien |
+    | Dokumente          |
+2024-07-09T22:02:43.953+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] c.qa.verivox.core.driverUtils.Element    : [[RemoteWebDriver: chrome on mac (0093fc03d5a704212a71d345979ec46c)] -> xpath: (.//button[@class='button secondary button-toggle'])[1]/following-sibling::button] is displayed
+  And I see the ZUM ONLINE-ANTRAG button for tariff 1                                                                                                  # com.qa.verivox.cucumber.stepDefinitions.SearchSteps.iSeeTheZUMONLINEANTRAGButton(int)
+2024-07-09T22:02:44.179+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Screenshot taken and stored as : './Screenshots/Search_ch.png'
+
+    Embedding Verify offer details for a selected tariff [image/png 473911 bytes]
+
+2024-07-09T22:02:44.238+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Driver quit
+2024-07-09T22:02:44.238+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Driver quit
+2024-07-09T22:02:44.238+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : Driver quit
+2024-07-09T22:02:44.386+02:00  INFO 53182 --- [QAChallenge_Verivox] [           main] com.qa.verivox.core.driverUtils.Driver   : DriverService stopped
+┌──────────────────────────────────────────────────────────────────────────┐
+│ View your Cucumber Report at:                                            │
+│ https://reports.cucumber.io/reports/8a33cec2-dcea-4bac-aa65-6e4a75dc5bba │
+│                                                                          │
+│ This report will self-destruct in 24h.                                   │
+│ Keep reports forever: https://reports.cucumber.io/profile                │
+└──────────────────────────────────────────────────────────────────────────┘[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 119.8 s -- in com.qa.verivox.cucumber.runner.RunCucumberTest
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:04 min
+[INFO] Finished at: 2024-07-09T22:02:45+02:00
+[INFO] ------------------------------------------------------------------------
