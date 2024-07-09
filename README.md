@@ -20,8 +20,7 @@ This repo is for solving the tech task as part of the interview process of Veriv
 * Used Selenium Webdriver with Page Object Model Design used 
 * WebDriver manager : No need to download the driver manually , just configure your test browser and its related driver will be downloaded automatically
 * Using Cucumber testing framework to apply the design of BDD based on Gherkin language
-* Visualized Reporting - *Using ExtentReport which shows all the executed tests info + failure counter + the assertion messages of the failed tests as shown below*
-  ![Report sample](https://github.com/Waleedmohammed/QAChallenge_Verivox/blob/master/ExtentReport.png)
+* Visualized Reporting - *Using ExtentReport and Cucumber Reports
 * Report Should be generated automatically under "./test-output/ExtentReport.html"
 * In addition to Cucumber framework , I intended to apply concept of Fluent Interface with Method chaining to build tests with Syntactic Sugar Language to achieve Domain Specific Language(DSL)
 * Tests with DSL (Domain Specific Language) located at "src/test/java/com/qa/verivox/DSL"
@@ -58,11 +57,15 @@ This repo is for solving the tech task as part of the interview process of Veriv
 ## How To Run Tests
 1. To run Cucumber test suite from command line just run ``` mvn clean test ``` from your terminal/cmd from root directory
    * The HTML report is generated automatically in the path target/cucumber-report.html
+     ![Report sample](https://github.com/Waleedmohammed/QAChallenge_Verivox/blob/master/CucumberReport.png)
+   
    * Logs also printed in terminal/cmd with a human readable language
 
 2. To run Cucumber test suite using TestNG , right click on "src/test/resources/BDDTest.xml" and run as TestNG
 3. If you would like to run the non cucumber Tests , right click on "src/test/resources/DSL Test.xml" and run as TestNG or run single test from test classes located at "src/test/java/com/qa/verivox/DSL" package
    * The HTML report is generated automatically in the path test-output/ExtentReport.html
+     ![Report sample](https://github.com/Waleedmohammed/QAChallenge_Verivox/blob/master/ExtentReport.png)
+   
    * Logs also printed in terminal/cmd with a human readable language
 
 
