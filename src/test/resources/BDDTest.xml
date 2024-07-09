@@ -3,7 +3,6 @@
 
 <listeners>
     <listener class-name="com.qa.verivox.core.report.ExtentReport"/>
-
 </listeners>
 
 <test  name="BDD Tests">
