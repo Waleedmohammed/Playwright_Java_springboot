@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Smoke Test Suite" parallel="tests" thread-count="6">
+
+<listeners>
+    <listener class-name="com.qa.verivox.core.report.ExtentReport"/>
+
+</listeners>
+
+<test  name="Smoke Tests">
+    <classes>
+        <class name="com.qa.verivox.DSL.DSLCalculatorTest"/>
+        <class name="com.qa.verivox.DSL.SearchTarrifTest"/>
+    </classes>
+</test>
+</suite>
