@@ -67,6 +67,7 @@ This repo is for solving the tech task as part of the interview process of Veriv
      ![Report sample](https://github.com/Waleedmohammed/QAChallenge_Verivox/blob/master/ExtentReport.png)
    
    * Logs also printed in terminal/cmd with a human readable language
+   ![Log sample](https://github.com/Waleedmohammed/QAChallenge_Verivox/blob/master/command.log)
 
 
 
