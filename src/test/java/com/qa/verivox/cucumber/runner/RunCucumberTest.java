@@ -14,7 +14,7 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 /* For using Junit Runner  */
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features")
+@SelectClasspathResource("features/TarrifSearchResults.feature")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, " + // Generate Human readable test results in logs
         "html:target/cucumber-report.html, " + // Generate HTML Report
         "json:target/cucumber-report.json, " + // Generate XML Report

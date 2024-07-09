@@ -4,10 +4,12 @@ import com.qa.verivox.core.conf.AppProperties;
 import com.qa.verivox.core.driverUtils.Driver;
 import com.qa.verivox.core.driverUtils.DriverManager;
 import com.qa.verivox.pages.Home.HomePage;
-import com.qa.verivox.pages.common.HeaderPage;
+import com.qa.verivox.pages.common.Header.HeaderPage;
+import com.qa.verivox.pages.common.SearchResult.SearchPage;
 import com.qa.verivox.pages.privathaftpflicht.PrivathaftpflichtPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,8 +21,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
+
 import static com.qa.verivox.pages.Home.HomePage.getHomePage;
-import static com.qa.verivox.pages.common.HeaderPage.getHeader;
+import static com.qa.verivox.pages.common.Header.HeaderPage.getHeader;
+import static com.qa.verivox.pages.common.SearchResult.SearchPage.getSearchPage;
 import static com.qa.verivox.pages.privathaftpflicht.PrivathaftpflichtPage.getprivathaftpflichtPage;
 
 @Slf4j
@@ -36,11 +41,17 @@ public class SearchSteps {
 
     public Driver driver;
 
+    public int configuredSearchResults;
+
     HomePage homePage;
     HeaderPage header;
     PrivathaftpflichtPage privathaftpflichtPage;
+    SearchPage searchPage;
+
     @Before("@Search")
     public void setUp() {
+        configuredSearchResults = appProperties.getSearchresults();
+        log.info("I have *******    " + configuredSearchResults);
         driver = driverManager.getDriver();
         driver.start();
         driver.open(appProperties.getAppUrl());
@@ -49,7 +60,8 @@ public class SearchSteps {
     }
 
     @After("@Search")
-    public void teardown() {
+    public void teardown(Scenario scenario) {
+        scenario.attach(driver.captureScreenshot("Search"), "image/png", scenario.getName());
         driver.quit();
         driverManager.quitAllDrivers();
         driver.stopDriverService();
@@ -80,31 +92,73 @@ public class SearchSteps {
 
     @Given("I display the tariff Result List page")
     public void iDisplayTheTariffResultListPage() throws Exception {
-        privathaftpflichtPage.verify()
+        searchPage = getSearchPage(driver);
+        searchPage.verify()
                 .tarrifsShownSuccessfully();
     }
 
     @Then("I should see the total number of available tariffs listed above all the result list")
-    public void iShouldSeeTheTotalNumberOfAvailableTariffsListedAboveAllTheResultList() {
+    public void iShouldSeeTheTotalNumberOfAvailableTariffsListedAboveAllTheResultList() throws Exception {
+        searchPage.verify()
+                .totalNumberOfResultsDisplayed();
     }
 
     @When("I scroll to the end of the result list page")
-    public void iScrollToTheEndOfTheResultListPage() {
+    public void iScrollToTheEndOfTheResultListPage() throws Exception {
+        searchPage.act()
+                .scrollTillEndOfPage();
+
     }
 
-    @Then("I should see only the first {int} tariffs displayed")
-    public void iShouldSeeOnlyTheFirstTariffsDisplayed(int arg0) {
+    @Then("I should see only the first configured results count tariffs displayed")
+    public void iShouldSeeOnlyTheFirstTariffsDisplayed() throws Exception {
+        searchPage.verify()
+                .isSearchResultCount(configuredSearchResults);
     }
 
-    @When("I click on the button labeled {int} weitere Tarife laden")
-    public void iClickOnTheButtonLabeledWeitereTarifeLaden(int arg0) {
+    @When("I click on the button labeled 20 weitere Tarife laden")
+    public void iClickOnTheButtonLabeledWeitereTarifeLaden() throws Exception {
+        searchPage.act()
+                .clickLoadMoreButton();
     }
 
-    @Then("I should see the next {int} tariffs displayed")
-    public void iShouldSeeTheNextTariffsDisplayed(int arg0) {
+    @Then("I should see the next configured results count tariffs displayed")
+    public void iShouldSeeTheNextTariffsDisplayed() throws Exception {
+        searchPage.verify()
+                .isSearchResultCount(configuredSearchResults);
     }
 
     @And("I can continue to load any additional tariffs until all tariffs have been displayed")
-    public void iCanContinueToLoadAnyAdditionalTariffsUntilAllTariffsHaveBeenDisplayed() {
+    public void iCanContinueToLoadAnyAdditionalTariffsUntilAllTariffsHaveBeenDisplayed() throws Exception {
+        searchPage.verify()
+                .iCanClickLoadMoreButtonTillAllProductsDisplayed(configuredSearchResults);
     }
+
+
+    @Then("I should see the tariff price of the {int} tariff")
+    public void iShouldSeeTheTariffPriceOfTheTariff(int productNumber) throws Exception {
+        searchPage.verify()
+                .iCanSeePriceOfProductNumber(productNumber);
+
+    }
+
+    @When("I open tariff {int} details")
+    public void iOpenTariffDetails(int productNumber) throws Exception {
+        searchPage.act()
+                .clickOnTarifDetailsButton(productNumber);
+    }
+
+    @Then("I see tariff details sections:")
+    public void iSeeTariffDetails(List<String> productDetails) throws Exception {
+        searchPage.verify()
+                .iCanSeeProductDetails(productDetails);
+    }
+
+
+    @And("I see the ZUM ONLINE-ANTRAG button for tariff {int}")
+    public void iSeeTheZUMONLINEANTRAGButton(int productNumber) {
+        searchPage.verify()
+                .onlineAntragButtonDisplayed(productNumber);
+    }
+
 }

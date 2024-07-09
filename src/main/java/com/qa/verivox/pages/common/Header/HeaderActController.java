@@ -1,7 +1,6 @@
-package com.qa.verivox.pages.common;
+package com.qa.verivox.pages.common.Header;
 
 import com.qa.verivox.core.driverUtils.Driver;
-import com.qa.verivox.pages.Home.HomeActController;
 
 public class HeaderActController extends HeaderPage {
 

@@ -4,7 +4,13 @@ import com.qa.verivox.core.conf.AppProperties;
 import com.qa.verivox.core.conf.DriverConfig;
 import com.qa.verivox.core.driverUtils.Driver;
 import com.qa.verivox.core.driverUtils.DriverManager;
+import com.qa.verivox.pages.Home.HomePage;
+import com.qa.verivox.pages.common.Header.HeaderPage;
+import com.qa.verivox.pages.common.SearchResult.SearchPage;
+import com.qa.verivox.pages.privathaftpflicht.PrivathaftpflichtPage;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +24,7 @@ import org.testng.annotations.*;
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public abstract class TestBase extends AbstractTestNGSpringContextTests {
+public abstract class TestBase  extends AbstractTestNGSpringContextTests{
 
     @Autowired
     protected DriverConfig driverConfig;
@@ -31,7 +37,9 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
 
     public Driver driver;
 
-    @BeforeMethod(alwaysRun = true)
+
+
+    @BeforeMethod
     public void setUp() {
         driver = driverManager.getDriver();
         driver.start();
@@ -40,7 +48,7 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
     }
 
     // take screenshot when test case fail and add it in the Screenshot folder
-   /* @AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void screenshotOnFailure(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
             System.out.println("Failed!");
@@ -50,9 +58,9 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
         driver.quit();
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterSuite
     public void afterAll() {
         driverManager.quitAllDrivers();
         driver.stopDriverService();
-    }*/
+    }
 }

@@ -1,15 +1,8 @@
 package com.qa.verivox.pages.privathaftpflicht;
 
 import com.qa.verivox.core.driverUtils.Driver;
-import com.qa.verivox.core.driverUtils.Element;
-import com.qa.verivox.pages.common.HeaderPage;
 import com.qa.verivox.utils.TestHelper;
-import freemarker.core.StopException;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-
-import java.time.Duration;
 
 @Slf4j
 public class PrivathaftpflichtActController extends PrivathaftpflichtPage {
@@ -51,11 +44,18 @@ public class PrivathaftpflichtActController extends PrivathaftpflichtPage {
 
     public PrivathaftpflichtActController clickOnVergleichenButton() throws Exception {
 
-        driver.waitForLoading(Duration.ofSeconds(2000));
         driver.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
+        driver.waitForVisibilityOfElementLocated(vergleichenBtn);
         driver.findElement(vergleichenBtn).click();
-
-        Thread.sleep(20000);
         return this;
     }
+
+
+
+
+
+/*    public void openProductNumber(int productNumber) throws Exception {
+        driver.waitForVisibilityOfElementLocated(getProductPriceBtn(productNumber + 1));
+        driver.findElement(getProductPriceBtn(productNumber + 1)).click();
+    }*/
 }

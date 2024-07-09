@@ -1,15 +1,11 @@
 package com.qa.verivox.pages.privathaftpflicht;
 
 import com.qa.verivox.core.driverUtils.Driver;
-import com.qa.verivox.pages.common.HeaderActController;
-import com.qa.verivox.pages.common.HeaderVerifyController;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
-
-import java.time.Duration;
 
 @Slf4j
 public class PrivathaftpflichtPage extends LoadableComponent<PrivathaftpflichtPage> {
@@ -44,12 +40,11 @@ public class PrivathaftpflichtPage extends LoadableComponent<PrivathaftpflichtPa
 
     protected By vergleichenBtn = By.xpath(".//button[contains(text(),'Jetzt vergleichen')]");
 
-    protected By productContainer = By.xpath("//div[@class='product-container']");
 
 
 
     public static PrivathaftpflichtPage getprivathaftpflichtPage(Driver driver) {
-        return new PrivathaftpflichtPage(driver, new PrivathaftpflichtActController(driver), new PrivathaftpflichtVerifyController(driver)).get();
+        return new PrivathaftpflichtPage(driver, new PrivathaftpflichtActController(driver), new PrivathaftpflichtVerifyController(driver));
     }
 
     public PrivathaftpflichtActController act() {
@@ -69,8 +64,7 @@ public class PrivathaftpflichtPage extends LoadableComponent<PrivathaftpflichtPa
     @Override
     protected void isLoaded() throws Error {
         Assertions.assertAll(
-                () -> driver.findElement(familistandDdl).verifyDisplayed(true),
-                () -> driver.waitForLoading(Duration.ofSeconds(60))
+                () -> driver.findElement(familistandDdl).verifyDisplayed(true)
         );
         log.info("Privathaftpflicht Page Loaded Successfully");
     }

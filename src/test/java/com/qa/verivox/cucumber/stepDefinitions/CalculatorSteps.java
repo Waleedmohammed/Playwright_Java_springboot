@@ -4,10 +4,12 @@ import com.qa.verivox.core.conf.AppProperties;
 import com.qa.verivox.core.driverUtils.Driver;
 import com.qa.verivox.core.driverUtils.DriverManager;
 import com.qa.verivox.pages.Home.HomePage;
-import com.qa.verivox.pages.common.HeaderPage;
+import com.qa.verivox.pages.common.Header.HeaderPage;
+import com.qa.verivox.pages.common.SearchResult.SearchPage;
 import com.qa.verivox.pages.privathaftpflicht.PrivathaftpflichtPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,7 +22,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static com.qa.verivox.pages.Home.HomePage.getHomePage;
-import static com.qa.verivox.pages.common.HeaderPage.getHeader;
+import static com.qa.verivox.pages.common.Header.HeaderPage.getHeader;
+import static com.qa.verivox.pages.common.SearchResult.SearchPage.getSearchPage;
 import static com.qa.verivox.pages.privathaftpflicht.PrivathaftpflichtPage.getprivathaftpflichtPage;
 
 @Slf4j
@@ -40,6 +43,7 @@ public class CalculatorSteps {
     HomePage homePage;
     HeaderPage header;
     PrivathaftpflichtPage privathaftpflichtPage;
+    SearchPage searchPage;
 
     @Before("@Calculator")
     public void setUp() {
@@ -51,7 +55,8 @@ public class CalculatorSteps {
     }
 
     @After("@Calculator")
-    public void teardown() {
+    public void teardown(Scenario scenario) {
+        scenario.attach(driver.captureScreenshot("Calculator"), "image/png", scenario.getName());
         driver.quit();
         driverManager.quitAllDrivers();
         driver.stopDriverService();
@@ -103,7 +108,8 @@ public class CalculatorSteps {
 
     @Then("I should see a page that lists the available tariffs for my selection")
     public void i_should_see_a_page_that_lists_the_available_tariffs_for_my_selection() throws Exception {
-        privathaftpflichtPage.verify().tarrifsShownSuccessfully();
+        searchPage = getSearchPage(driver);
+        searchPage.verify().tarrifsShownSuccessfully();
     }
 
 }

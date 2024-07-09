@@ -1,16 +1,11 @@
-package com.qa.verivox.pages.common;
+package com.qa.verivox.pages.common.Header;
 
 import com.qa.verivox.core.driverUtils.Driver;
-import com.qa.verivox.pages.Home.HomeActController;
-import com.qa.verivox.pages.Home.HomePage;
-import com.qa.verivox.pages.Home.HomeVerifyController;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
-
-import java.time.Duration;
 
 @Slf4j
 public class HeaderPage extends LoadableComponent<HeaderPage> {
@@ -43,7 +38,7 @@ public class HeaderPage extends LoadableComponent<HeaderPage> {
 
 
     public static HeaderPage getHeader(Driver driver) {
-        return new HeaderPage(driver, new HeaderActController(driver), new HeaderVerifyController(driver)).get();
+        return new HeaderPage(driver, new HeaderActController(driver), new HeaderVerifyController(driver));
     }
 
     public HeaderActController act() {

@@ -14,4 +14,5 @@ public class AppProperties {
     private String appPassword;
     private String appUserName;
     private String dataSourcePath;
+    private int searchresults;
 }

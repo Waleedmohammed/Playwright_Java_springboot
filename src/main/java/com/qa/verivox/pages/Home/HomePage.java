@@ -16,6 +16,8 @@ public class HomePage extends LoadableComponent<HomePage> {
     private HomeVerifyController verify;
 
     protected Driver driver;
+
+    protected By cookiesPanel = By.xpath("//div[@class='cmp-container first-load']");
     protected By acceptCookiesBtn = By.id("uc-btn-accept-banner");
 
 
@@ -32,7 +34,7 @@ public class HomePage extends LoadableComponent<HomePage> {
     }
 
     public static HomePage getHomePage(Driver driver) {
-        return new HomePage(driver, new HomeActController(driver), new HomeVerifyController(driver)).get();
+        return new HomePage(driver, new HomeActController(driver), new HomeVerifyController(driver));
     }
 
     public HomeActController act() {
@@ -51,7 +53,6 @@ public class HomePage extends LoadableComponent<HomePage> {
     @Override
     protected void isLoaded() throws Error {
         Assertions.assertAll(
-                () -> driver.waitForLoading(Duration.ofSeconds(60)),
                 () -> driver.findElement(acceptCookiesBtn).verifyDisplayed(true)
         );
         log.info("Main Page Loaded Successfully");

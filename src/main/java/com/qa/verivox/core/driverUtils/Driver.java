@@ -41,6 +41,9 @@ public abstract class Driver {
     private WebDriverWait wait;
     private WebElement elementToBePresent;
 
+    private List<WebElement> allElementToBePresent;
+
+
     private WebElement element;
 
     public Driver(DriverConfig driverConfig) {
@@ -170,20 +173,30 @@ public abstract class Driver {
                 .until(expected), this);
     }
 
-    public void waitForLoading(Duration timeout) throws InterruptedException {
-        Thread.sleep(5000);
-        ExpectedCondition<Boolean> expectation = webDriver ->
-        {
-            assert webDriver != null;
-            return (Boolean) executeScript("var page=(document.readyState == 'complete');" +
-                    " var ajax; try{ajax = (jQuery.active==0);}catch(e){ajax= true} return (page && ajax)");
+
+    public void waitForLoading(Duration timeout) {
+        ExpectedCondition<Boolean> javascriptDone = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                try {
+                    return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+                } catch (Exception e) {
+                    return Boolean.FALSE;
+                }
+            }
         };
-        new WebDriverWait(driver, timeout).until(expectation);
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(javascriptDone);
     }
 
-    public void waitForPresenceOfElementLocated(By locator) {
+    public void waitForPresenceOfElementLocated(By locator) throws InterruptedException {
+        Thread.sleep(3000);
         wait = new WebDriverWait(driver, Duration.ofSeconds(driverConfig.getExplicitlyWait()));
         elementToBePresent = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
+    public void waitForPresenceOfListElementLocated(By locator) {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(driverConfig.getExplicitlyWait()));
+        allElementToBePresent = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 
 
@@ -198,6 +211,11 @@ public abstract class Driver {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public List<String> getAllStringsInsideUnOrderListLocatedBy(By locator) throws InterruptedException {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(driverConfig.getExplicitlyWait()));
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator)).stream().map(element -> element.getText().replace("\u00AD", "")).collect(Collectors.toList());
+    }
+
     public void implicitWait(int timeoutInSeconds) {
         driver.manage().timeouts().implicitlyWait(timeoutInSeconds, TimeUnit.SECONDS);
     }
@@ -207,17 +225,20 @@ public abstract class Driver {
     }
 
 
-    public void captureScreenshot(String screenshotName) {
+    public byte[] captureScreenshot(String screenshotName) {
         Path dest = Paths.get("./Screenshots", screenshotName + "_" + driverConfig.getName() + ".png");
+        byte[] screenshot = new byte[0];
         try {
             Files.createDirectories(dest.getParent());
             FileOutputStream out = new FileOutputStream(dest.toString());
-            out.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
+            screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            out.write(screenshot);
             log.info("Screenshot taken and stored as : '" + dest + "'");
             out.close();
         } catch (IOException e) {
             System.out.println("Excpetion while taking screenshot" + e.getMessage());
         }
+        return screenshot;
     }
 
     public Boolean isElementExist(By locator) {
