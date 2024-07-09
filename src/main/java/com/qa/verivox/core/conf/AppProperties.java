@@ -9,10 +9,6 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "app")
 public class AppProperties {
 
-    private String testEnv;
     private String appUrl;
-    private String appPassword;
-    private String appUserName;
-    private String dataSourcePath;
     private int searchresults;
 }
