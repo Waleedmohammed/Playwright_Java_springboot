@@ -20,7 +20,7 @@
 		<webdrivermanager.version>5.7.0</webdrivermanager.version>
 		<cucumber.version>7.18.0</cucumber.version>
 		<testng.version>7.7.0</testng.version>
-		<extentReport.version>2.41.2</extentReport.version>
+		<extentReport.version>5.0.9</extentReport.version>
 		<maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
 		<maven.surefire.plugin.version>3.2.3</maven.surefire.plugin.version>
 		<maven.compiler.source.version>17</maven.compiler.source.version>
@@ -78,12 +78,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.aventstack</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>5.0.9</version>
-		</dependency>
-
-		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
 			<version>${webdrivermanager.version}</version>
@@ -123,7 +117,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.relevantcodes</groupId>
+			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>${extentReport.version}</version>
 		</dependency>
