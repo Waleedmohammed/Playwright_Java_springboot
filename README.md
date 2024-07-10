@@ -10,7 +10,7 @@ This repo is for solving the tech task as part of the interview process of Veriv
 ### Installation
 
 1. Download and install Maven
-2. Download Intelij with Java JDK 17
+2. Download Intellij with Java JDK 17
 3. Install TestNG
 4. Clone this Repo
 
