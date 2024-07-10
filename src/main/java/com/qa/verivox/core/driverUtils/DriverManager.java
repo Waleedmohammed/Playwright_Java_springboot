@@ -28,24 +28,10 @@ public class DriverManager {
         return driver;
     }
 
-//    private static class SingletonHelper {
-//        private static final DriverManager INSTANCE = Injector.getInjector().getInstance(DriverManager.class);
-//
-//        static {
-//            Runtime.getRuntime().addShutdownHook(new Thread(INSTANCE::quitAllDrivers));
-//        }
-//    }
-//
-//    public static DriverManager getInstance() {
-//        return SingletonHelper.INSTANCE;
-//    }
-
     public void quitAllDrivers() {
         drivers.forEach((Driver::quit));
         drivers.clear();
     }
-
-
 }
 
 

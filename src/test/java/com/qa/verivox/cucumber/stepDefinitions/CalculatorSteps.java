@@ -50,14 +50,11 @@ public class CalculatorSteps {
         driver = driverManager.getDriver();
         driver.start();
         driver.open(appProperties.getAppUrl());
-        driver.maximize();
-
     }
 
     @After("@Calculator")
     public void teardown(Scenario scenario) {
         scenario.attach(driver.captureScreenshot("Calculator"), "image/png", scenario.getName());
-        driver.quit();
         driverManager.quitAllDrivers();
         driver.stopDriverService();
     }

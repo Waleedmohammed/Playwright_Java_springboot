@@ -43,7 +43,6 @@ public abstract class Driver {
 
     private List<WebElement> allElementToBePresent;
 
-
     private WebElement element;
 
     public Driver(DriverConfig driverConfig) {
@@ -242,11 +241,7 @@ public abstract class Driver {
     }
 
     public Boolean isElementExist(By locator) {
-        boolean isElementExist = false;
-        if (!driver.findElements(locator).isEmpty()) {
-            isElementExist = true;
-        }
-        return isElementExist;
+        return !driver.findElements(locator).isEmpty();
     }
 
 
@@ -303,16 +298,12 @@ public abstract class Driver {
     public void typeInAlertTxt(String text) {
         Alert alert = driver.switchTo().alert();
         log.info("Typing {} in Alert ******", text);
-
         alert.sendKeys(text);
     }
 
     public void uploadFile(File file, By uploaderLocator) {
-
         WebElement uploadText = driver.findElement(uploaderLocator);
-
         uploadText.sendKeys(file.getAbsolutePath());
-
         log.info("Uploading file {} ******", file.getAbsolutePath());
     }
 
@@ -321,17 +312,5 @@ public abstract class Driver {
         SessionStorage sessionStorage = webStorage.getSessionStorage();
         return sessionStorage;
     }
-
-
-//    public LogEntries assertNoErrorInLogs() {
-//        LogEntries logs =  driver.manage().logs().get(LogType.BROWSER);
-//        logs.forEach(this::checkNoErrors);
-//        return logs;
-//    }
-//
-//    private void checkNoErrors(LogEntry logs) {
-//        logs.getLevel().getName();
-//    }
-
 
 }

@@ -11,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,8 +20,6 @@ import java.util.logging.Level;
 
 @Slf4j
 public class WebChromeDriver extends Driver {
-
-    private DevTools devTools;
 
     public WebChromeDriver(DriverConfig config) {
         super(config);

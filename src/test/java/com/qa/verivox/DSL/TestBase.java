@@ -62,7 +62,6 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
         driver = driverManager.getDriver();
         driver.start();
         driver.open(appProperties.getAppUrl());
-        driver.maximize();
     }
 
     // take screenshot when test case fail and add it in the Screenshot folder

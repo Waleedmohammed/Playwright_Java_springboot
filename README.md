@@ -28,7 +28,7 @@ This repo is for solving the tech task as part of the interview process of Veriv
 
 ## Framework Structure
 1. src/main/java/com/qa/verivox/core
-   * here located all Driver / WebElement Wrappers + Properties classes + Extend Report to be used as TestNG listner
+   * here located all Driver / WebElement Wrappers + Properties classes
 
 2. src/main/java/com/qa/verivox/pages
    * here located all Page Objects with main three classes for each page
@@ -61,9 +61,10 @@ This repo is for solving the tech task as part of the interview process of Veriv
    
    * Logs also printed in terminal/cmd with a human readable language
 
-2. To run Cucumber test suite using TestNG , right click on "src/test/resources/BDDTest.xml" and run as TestNG
-3. If you would like to run the non cucumber Tests , right click on "src/test/resources/DSL Test.xml" and run as TestNG or run single test from test classes located at "src/test/java/com/qa/verivox/DSL" package
-   * The HTML report is generated automatically in the path test-output/ExtentReport.html
+2. If you would like to run non cucumber Tests , 
+   * Enable related Plugin in pom file , it is already there and disabled at the moment
+   * run ``` mvn clean test -Pdsl-tests ```
+   * The HTML report is generated automatically in the path ./Report.html
      ![Report sample](https://github.com/Waleedmohammed/QAChallenge_Verivox/blob/master/ExtentReport.png)
    
    * Logs also printed in terminal/cmd with a human readable language

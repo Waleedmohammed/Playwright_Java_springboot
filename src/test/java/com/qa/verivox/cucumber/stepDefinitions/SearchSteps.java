@@ -54,14 +54,11 @@ public class SearchSteps {
         driver = driverManager.getDriver();
         driver.start();
         driver.open(appProperties.getAppUrl());
-        driver.maximize();
-
     }
 
     @After("@Search")
     public void teardown(Scenario scenario) {
         scenario.attach(driver.captureScreenshot("Search"), "image/png", scenario.getName());
-        driver.quit();
         driverManager.quitAllDrivers();
         driver.stopDriverService();
     }

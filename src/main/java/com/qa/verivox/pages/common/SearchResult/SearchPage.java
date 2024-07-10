@@ -80,14 +80,19 @@ public class SearchPage extends LoadableComponent<SearchPage> {
         } else {
             applicableLoadMoreClicks = applicableLoadMoreClicks - 1;
         }
+
         log.info("All {} Products Should be displayed after clicking on load More button {} clicks ", totalNumberOfResults, applicableLoadMoreClicks);
 
-        while (applicableLoadMoreClicks > 0) {
-            applicableLoadMoreClicks--;
-            Thread.sleep(200);
+        while (driver.isElementExist(loadMoreBtn))
+        {
+            driver.executeScript("window.scrollTo(0, document.body.scrollHeight);", "");
+            log.info("Load More Button Still Exist ... Clicking on it to load more results !");
             driver.findElement(loadMoreBtn).click();
             driver.waitForPresenceOfElementLocated(initialProductList);
         }
+
+        log.info("Load More Button No Longer Exist ... No more Data available to display !");
+
     }
 
 
