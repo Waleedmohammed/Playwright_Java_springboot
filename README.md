@@ -11,8 +11,8 @@ This repo is for solving the tech task as part of the interview process of Veriv
 
 - [Installation](#installation)
 - [Features](#Features)
-- [Framework Structure](#FrameworkStructure)
-- [How To Run Tests](#HowToRunTests)
+- [Framework Structure](#Framework_Structure)
+- [How To Run Tests](#How_To_Run_Tests)
 
 ### Installation
 
@@ -32,7 +32,7 @@ This repo is for solving the tech task as part of the interview process of Veriv
 * Tests with DSL (Domain Specific Language) located at "src/test/java/com/qa/verivox/DSL"
 * Test with Cucumber Framework located at "src/test/resources/features"
 
-## Framework Structure
+## Framework_Structure
 1. src/main/java/com/qa/verivox/core
    * here located all Driver / WebElement Wrappers + Properties classes
 
@@ -60,7 +60,7 @@ This repo is for solving the tech task as part of the interview process of Veriv
    * Cucumber features files are located here
 
 
-## How To Run Tests
+## How_To_Run_Tests
 
 1. Configure your preferred test browser and all Webdriver config from 
    * application-chrome-test.properties
