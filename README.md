@@ -7,6 +7,13 @@ This repo is for solving the tech task as part of the interview process of Veriv
     * Junit
     * TestNG
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Features](#Features)
+- [Framework Structure](#Framework Structure)
+- [How To Run Tests](#How To Run Tests)
+
 ### Installation
 
 1. Download and install Maven
