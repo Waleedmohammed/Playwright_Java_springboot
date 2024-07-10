@@ -11,8 +11,8 @@ This repo is for solving the tech task as part of the interview process of Veriv
 
 - [Installation](#installation)
 - [Features](#Features)
-- [Framework Structure](#Framework Structure)
-- [How To Run Tests](#How To Run Tests)
+- [Framework Structure](#FrameworkStructure)
+- [How To Run Tests](#HowToRunTests)
 
 ### Installation
 
