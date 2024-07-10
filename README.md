@@ -55,13 +55,21 @@ This repo is for solving the tech task as part of the interview process of Veriv
 
 
 ## How To Run Tests
-1. To run Cucumber test suite from command line just run ``` mvn clean test ``` from your terminal/cmd from root directory
+
+1. Configure your preferred test browser and all Webdriver config from 
+   * application-chrome-test.properties
+   * application-firefox-test.properties
+
+2. Choose your spring profile from application.properties 
+   * spring.profiles.active = (chrome,firefox)  
+
+3. To run Cucumber test suite from command line just run ``` mvn clean test ``` from your terminal/cmd from root directory
    * The HTML report is generated automatically in the path target/cucumber-report.html
      ![Report sample](https://github.com/Waleedmohammed/QAChallenge_Verivox/blob/master/CucumberReport.png)
    
    * Logs also printed in terminal/cmd with a human readable language
 
-2. If you would like to run non cucumber Tests , 
+4. If you would like to run non cucumber Tests , 
    * Enable related Plugin in pom file , it is already there and disabled at the moment
    * run ``` mvn clean test -Pdsl-tests ```
    * The HTML report is generated automatically in the path ./Report.html
