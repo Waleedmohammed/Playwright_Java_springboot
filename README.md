@@ -63,7 +63,9 @@ This repo is for solving the tech task as part of the interview process of Veriv
 2. Choose your spring profile from application.properties 
    * spring.profiles.active = (chrome,firefox)  
 
-3. To run Cucumber test suite from command line just run ``` mvn clean test ``` from your terminal/cmd from root directory
+3. By Default junit runner used by Spring Boot to run tests by running command ``` mvn clean test ```
+
+4. To run Cucumber test suite from command line just run ``` mvn clean test ``` from your terminal/cmd from root directory
    * The HTML report is generated automatically in the path target/cucumber-report.html
      ![Report sample](https://github.com/Waleedmohammed/QAChallenge_Verivox/blob/master/CucumberReport.png)
    
