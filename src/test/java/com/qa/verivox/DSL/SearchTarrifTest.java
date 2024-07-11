@@ -67,9 +67,7 @@ public class SearchTarrifTest extends TestBase{
                 .clickLoadMoreButton();
 
         searchPage.verify()
-                .isSearchResultCount(appProperties.getSearchresults());
-
-        searchPage.verify()
+                .isSearchResultCount(appProperties.getSearchresults())
                 .iCanClickLoadMoreButtonTillAllProductsDisplayed(appProperties.getSearchresults());
 
     }
@@ -90,9 +88,7 @@ public class SearchTarrifTest extends TestBase{
 
         searchPage.verify()
                 .iCanSeeProductDetails(productDetails1)
-                .iCanSeeProductDetails(productDetails2);
-
-        searchPage.verify()
+                .iCanSeeProductDetails(productDetails2)
                 .onlineAntragButtonDisplayed(1);
 
     }
