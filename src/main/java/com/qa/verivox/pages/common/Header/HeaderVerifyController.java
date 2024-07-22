@@ -1,10 +1,10 @@
 package com.qa.verivox.pages.common.Header;
 
-import com.qa.verivox.core.driverUtils.Driver;
+import com.microsoft.playwright.Page;
 
 public class HeaderVerifyController extends HeaderPage {
-    HeaderVerifyController(Driver driver) {
-        super(driver);
+    HeaderVerifyController(Page page) {
+        super(page);
     }
 
 }

@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "driver")
-public class DriverConfig {
+@ConfigurationProperties(prefix = "browser")
+public class BrowserConfig {
 
     private String name;
     private boolean Headless;
@@ -21,5 +21,6 @@ public class DriverConfig {
     private String scriptTimeout;
     private String chromePath;
     private String firFoxPath;
+    private String appUrl;
 
 }

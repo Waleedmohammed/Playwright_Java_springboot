@@ -1,40 +1,33 @@
 package com.qa.verivox.pages.common.Header;
 
-import com.qa.verivox.core.driverUtils.Driver;
+import com.microsoft.playwright.Page;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class HeaderActController extends HeaderPage {
 
-    HeaderActController(Driver driver) {
-        super(driver);
+    HeaderActController(Page page) {
+        super(page);
     }
 
-    public HeaderActController mouseHoverVersicherungTab() throws Exception {
-        driver.findElement(versicherungenHlink).moveToElement();
+    public HeaderActController getTitle() throws Exception {
+        String title = page.title();
+        log.info("Title is {}", title);
         return this;
     }
 
-    public HeaderActController goToPrivathaftpflichtPage() throws Exception {
-        driver.findElement(privathaftpflichtHlink).click();
+    public HeaderActController acceptCookies() throws Exception {
+        page.click(acceptCookies);
         return this;
     }
 
-    public HeaderActController waitForFamilistandDropDownList() throws Exception {
-        driver.waitForPresenceOfElementLocated(familistandDdl);
+    public HeaderActController enterSearchText(String text) throws Exception {
+        page.fill(searchText,text);
         return this;
     }
 
-    public HeaderActController selectFamilistand(String familistandValue) throws Exception {
-        driver.findElement(familistandDdl).selectValueFromDDL(familistandValue);
-        return this;
-    }
-
-    public HeaderActController enterAge(int age) throws Exception {
-        driver.findElement(ageTxtBox).enterText(Integer.toString(age));
-        return this;
-    }
-
-    public HeaderActController clickJetztVergleichenButton() throws Exception {
-        driver.findElement(submitBtn).click();
+    public HeaderActController clickSearchBtn() throws Exception {
+        page.click(searchBtn);
         return this;
     }
 }

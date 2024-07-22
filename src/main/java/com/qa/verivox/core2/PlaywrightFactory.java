@@ -1,4 +1,4 @@
-package com.qa.opencart.factory;
+package com.qa.verivox.core2;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,6 +13,7 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import com.qa.verivox.core.conf.BrowserConfig;
 
 public class PlaywrightFactory {
 
@@ -43,9 +44,9 @@ public class PlaywrightFactory {
 		return tlPage.get();
 	}
 
-	public Page initBrowser(Properties prop) {
+	public Page initBrowser(BrowserConfig browserConfig) {
 
-		String browserName = prop.getProperty("browser").trim();
+		String browserName = browserConfig.getName();
 		System.out.println("browser name is : " + browserName);
 
 		// playwright = Playwright.create();
@@ -77,7 +78,7 @@ public class PlaywrightFactory {
 
 		tlBrowserContext.set(getBrowser().newContext());
 		tlPage.set(getBrowserContext().newPage());
-		getPage().navigate(prop.getProperty("url").trim());
+		getPage().navigate(browserConfig.getAppUrl());
 		return getPage();
 
 	}

@@ -5,17 +5,14 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.microsoft.playwright.Page;
 import com.qa.verivox.core.conf.AppProperties;
-import com.qa.verivox.core.conf.DriverConfig;
-import com.qa.verivox.core.driverUtils.Driver;
-import com.qa.verivox.core.driverUtils.DriverManager;
-import com.qa.verivox.pages.Home.HomePage;
-import com.qa.verivox.pages.common.Header.HeaderPage;
-import com.qa.verivox.pages.common.SearchResult.SearchPage;
-import com.qa.verivox.pages.privathaftpflicht.PrivathaftpflichtPage;
+import com.qa.verivox.core.conf.BrowserConfig;
+
+import com.qa.verivox.core2.PlaywrightFactory;
+
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,16 +31,13 @@ import java.lang.reflect.Method;
 public abstract class TestBase extends AbstractTestNGSpringContextTests {
 
     @Autowired
-    protected DriverConfig driverConfig;
+    protected BrowserConfig browserConfig;
 
     @Autowired
     protected AppProperties appProperties;
 
-    @Autowired
-    protected DriverManager driverManager;
-
-    public Driver driver;
-
+    PlaywrightFactory pf;
+    Page page;
     private static ExtentTest logger;
     private static ExtentReports report;
 
@@ -59,9 +53,8 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
     @BeforeMethod
     public void setUp(Method method) {
         logger = report.createTest(method.getName());
-        driver = driverManager.getDriver();
-        driver.start();
-        driver.open(appProperties.getAppUrl());
+        pf = new PlaywrightFactory();
+        page = pf.initBrowser(browserConfig);
     }
 
     // take screenshot when test case fail and add it in the Screenshot folder
@@ -70,7 +63,7 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
         if (result.getStatus() == ITestResult.FAILURE) {
             System.out.println("Failed!");
             System.out.println("Taking Screenshot....");
-            driver.captureScreenshot(result.getName());
+            //driver.captureScreenshot(result.getName());
         }
         // log the test method's execution result. if it fails, log the assertion error
         if (result.getStatus() == ITestResult.FAILURE) {
@@ -80,17 +73,17 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
         } else if (result.getStatus() == ITestResult.SKIP) {
             logger.log(Status.SKIP, method.getName());
         }
-        driver.quit();
+        page.close();
     }
 
     @AfterTest
     public void endReport() {
         report.flush();
+        page.context().browser().close();
     }
 
     @AfterSuite
     public void afterAll() {
-        driverManager.quitAllDrivers();
-        driver.stopDriverService();
+        page.context().browser().close();
     }
 }
