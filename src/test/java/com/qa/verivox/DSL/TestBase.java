@@ -5,12 +5,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.microsoft.playwright.Page;
 import com.qa.verivox.core.conf.AppProperties;
 import com.qa.verivox.core.conf.BrowserConfig;
 
-import com.qa.verivox.core.factory.PlaywrightFactory;
+import com.qa.verivox.core.factory.PageManager;
 
+import com.qa.verivox.core.factory.BasePage;
 import lombok.extern.slf4j.Slf4j;
 
 import org.junit.jupiter.api.TestInstance;
@@ -36,8 +36,11 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
     @Autowired
     protected AppProperties appProperties;
 
-    PlaywrightFactory pf;
-    Page page;
+    @Autowired
+    protected PageManager pageManager;
+
+    BasePage basePage;
+
     private static ExtentTest logger;
     private static ExtentReports report;
 
@@ -53,8 +56,8 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
     @BeforeMethod
     public void setUp(Method method) {
         logger = report.createTest(method.getName());
-        pf = new PlaywrightFactory();
-        page = pf.initBrowser(browserConfig);
+        basePage = pageManager.getPage();
+        basePage.start();
     }
 
     // take screenshot when test case fail and add it in the Screenshot folder
@@ -63,7 +66,7 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
         if (result.getStatus() == ITestResult.FAILURE) {
             System.out.println("Failed!");
             System.out.println("Taking Screenshot....");
-            pf.takeScreenshot();
+            basePage.takeScreenshot();
         }
         // log the test method's execution result. if it fails, log the assertion error
         if (result.getStatus() == ITestResult.FAILURE) {
@@ -73,17 +76,17 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
         } else if (result.getStatus() == ITestResult.SKIP) {
             logger.log(Status.SKIP, method.getName());
         }
-        page.context().browser().close();
+        basePage.quit();
     }
 
     @AfterTest
     public void endReport() {
         report.flush();
-        page.context().browser().close();
+        basePage.quit();
     }
 
     @AfterSuite
     public void afterAll() {
-        page.context().browser().close();
+        basePage.quit();
     }
 }

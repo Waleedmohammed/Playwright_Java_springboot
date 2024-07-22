@@ -1,0 +1,36 @@
+package com.qa.verivox.core.factory.web;
+
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+import com.qa.verivox.core.conf.BrowserConfig;
+import com.qa.verivox.core.factory.BasePage;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class WebChromePage extends BasePage {
+
+    public WebChromePage(BrowserConfig config) {
+        super(config);
+    }
+
+    @Override
+    protected Page init() {
+
+        tlPlaywright.set(Playwright.create());
+        tlBrowser.set(getPlaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(browserConfig.isHeadless())));
+
+        tlBrowserContext.set(getBrowser().newContext(new Browser.NewContextOptions()
+                .setAcceptDownloads(true)
+                .setStrictSelectors(false)
+                .setJavaScriptEnabled(true)
+                .setLocale("")
+                .setTimezoneId("")));
+        tlPage.set(getBrowserContext().newPage());
+        getPage().navigate(browserConfig.getAppUrl());
+        return getPage();
+    }
+
+}

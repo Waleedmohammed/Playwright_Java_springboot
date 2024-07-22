@@ -17,7 +17,7 @@ public class SearchTarrifTest extends TestBase{
     @Test
     public void TestSearch() throws Exception {
 
-        home = getHeader(super.page);
+        home = getHeader(super.basePage);
         home.act()
                 .getTitle()
                 .acceptCookies()

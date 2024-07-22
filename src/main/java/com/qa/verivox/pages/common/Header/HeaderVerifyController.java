@@ -1,9 +1,9 @@
 package com.qa.verivox.pages.common.Header;
 
-import com.microsoft.playwright.Page;
+import com.qa.verivox.core.factory.BasePage;
 
 public class HeaderVerifyController extends HeaderPage {
-    HeaderVerifyController(Page page) {
+    HeaderVerifyController(BasePage page) {
         super(page);
     }
 
