@@ -22,5 +22,6 @@ public class BrowserConfig {
     private String chromePath;
     private String firFoxPath;
     private String appUrl;
+    private String downloadPath;
 
 }

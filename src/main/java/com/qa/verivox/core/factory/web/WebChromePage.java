@@ -29,7 +29,6 @@ public class WebChromePage extends BasePage {
                 .setLocale("")
                 .setTimezoneId("")));
         tlPage.set(getBrowserContext().newPage());
-        getPage().navigate(browserConfig.getAppUrl());
         return getPage();
     }
 

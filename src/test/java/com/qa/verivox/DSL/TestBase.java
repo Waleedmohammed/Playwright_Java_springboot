@@ -38,7 +38,6 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
 
     @Autowired
     protected PageManager pageManager;
-
     BasePage basePage;
     private static ExtentTest logger;
     private static ExtentReports report;
@@ -57,6 +56,7 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
         logger = report.createTest(method.getName());
         basePage = pageManager.getPage();
         basePage.start();
+        basePage.navigate(browserConfig.getAppUrl());
     }
 
     // take screenshot when test case fail and add it in the Screenshot folder
