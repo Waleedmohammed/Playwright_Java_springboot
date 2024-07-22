@@ -1,10 +1,8 @@
 package com.qa.verivox.core.driverUtils.web;
 
 
-import com.microsoft.playwright.BrowserContext;
-import com.qa.verivox.core.conf.BrowserConfig;
-import com.qa.verivox.core.driverUtils.Browser;
-import com.qa.verivox.core.driverUtils.MainBrowser;
+import com.qa.verivox.core.conf.DriverConfig;
+import com.qa.verivox.core.driverUtils.Driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -21,18 +19,19 @@ import java.util.logging.Level;
 
 
 @Slf4j
-public class ChromeBrowserContext extends MainBrowser {
+public class WebChromeDriver extends Driver {
 
-    public ChromeBrowserContext(BrowserConfig config) {
+    public WebChromeDriver(DriverConfig config) {
         super(config);
     }
 
     @Override
-    protected BrowserContext init() {
+    protected WebDriver init() {
 
+        String chromePath = driverConfig.getChromePath();
 
-        browser.newContext()
-
+        ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.fromString(driverConfig.getPageLoadingStrategy()));
         // options.setExperimentalOption() -- to use emulation mode
         if (driverConfig.isHeadless()) {
             options.addArguments("--headless=new");
