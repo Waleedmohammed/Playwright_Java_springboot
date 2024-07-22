@@ -1,8 +1,10 @@
 package com.qa.verivox.core.driverUtils.web;
 
 
-import com.qa.verivox.core.conf.DriverConfig;
-import com.qa.verivox.core.driverUtils.Driver;
+import com.microsoft.playwright.Browser;
+import com.qa.verivox.core.conf.BrowserConfig;
+import com.qa.verivox.core.driverUtils.Browser;
+import com.qa.verivox.core.driverUtils.MainBrowser;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -17,16 +19,21 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 @Slf4j
-public class WebFirefoxDriver extends Driver {
+public class FirefoxBrowserContext extends MainBrowser {
 
-    public WebFirefoxDriver(DriverConfig driverConfig) {
+    public FirefoxBrowserContext(BrowserConfig driverConfig) {
         super(driverConfig);
     }
 
     @Override
-    protected WebDriver init() {
+    protected Browser init() {
 
-        String firFoxPath = driverConfig.getFirFoxPath();
+        String firFoxPath = browserConfig.getFirFoxPath();
+
+        b
+
+
+
 
         FirefoxOptions options = new FirefoxOptions();
         FirefoxProfile profile = new FirefoxProfile();
