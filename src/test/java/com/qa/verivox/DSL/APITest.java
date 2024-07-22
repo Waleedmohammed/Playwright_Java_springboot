@@ -48,6 +48,7 @@ public class APITest extends TestBase {
     @Test
     public void TestHTTPTraffic() throws Exception {
         List<Integer> statuses = basePage.getAllResponseStatus();
+        basePage.printAllRequestResponses();
         basePage.navigate(browserConfig.getAppUrl());
         log.info("Status codes are {}",statuses);
         Assertions.assertTrue(basePage.getAllResponseStatus().stream().anyMatch(i -> i < 200 || i >= 300));

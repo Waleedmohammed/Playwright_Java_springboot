@@ -92,6 +92,11 @@ public abstract class BasePage {
         return statuses;
     }
 
+    public void printAllRequestResponses() {
+        page.onRequest(request -> System.out.println(">> " + request.method() + " " + request.url()));
+        page.onResponse(response -> System.out.println("<< " + response.status()));
+    }
+
     public FrameLocator getFrameLocatedBy(String frameLocator) {
         return page.frameLocator(frameLocator);
     }
