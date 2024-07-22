@@ -13,14 +13,10 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.options.Geolocation;
 import com.qa.verivox.core.conf.BrowserConfig;
 
 public class PlaywrightFactory {
-
-	Playwright playwright;
-	Browser browser;
-	BrowserContext browserContext;
-	Page page;
 	Properties prop;
 
 	private static ThreadLocal<Browser> tlBrowser = new ThreadLocal<>();
@@ -49,7 +45,6 @@ public class PlaywrightFactory {
 		String browserName = browserConfig.getName();
 		System.out.println("browser name is : " + browserName);
 
-		// playwright = Playwright.create();
 		tlPlaywright.set(Playwright.create());
 
 		switch (browserName.toLowerCase()) {
@@ -76,7 +71,12 @@ public class PlaywrightFactory {
 			break;
 		}
 
-		tlBrowserContext.set(getBrowser().newContext());
+		tlBrowserContext.set(getBrowser().newContext(new Browser.NewContextOptions()
+				.setAcceptDownloads(true)
+				.setStrictSelectors(false)
+				.setJavaScriptEnabled(true)
+				.setLocale("")
+				.setTimezoneId("")));
 		tlPage.set(getBrowserContext().newPage());
 		getPage().navigate(browserConfig.getAppUrl());
 		return getPage();
@@ -107,8 +107,8 @@ public class PlaywrightFactory {
 	 * 
 	 */
 
-	public static String takeScreenshot() {
-		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
+	public String takeScreenshot() {
+		String path = System.getProperty("user.dir") + "/Screenshots/" + System.currentTimeMillis() + ".png";
 		//getPage().screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));
 		
 		byte[] buffer = getPage().screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));

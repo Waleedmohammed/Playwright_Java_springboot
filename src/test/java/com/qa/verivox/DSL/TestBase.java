@@ -63,7 +63,7 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
         if (result.getStatus() == ITestResult.FAILURE) {
             System.out.println("Failed!");
             System.out.println("Taking Screenshot....");
-            //driver.captureScreenshot(result.getName());
+            pf.takeScreenshot();
         }
         // log the test method's execution result. if it fails, log the assertion error
         if (result.getStatus() == ITestResult.FAILURE) {
@@ -73,7 +73,7 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
         } else if (result.getStatus() == ITestResult.SKIP) {
             logger.log(Status.SKIP, method.getName());
         }
-        page.close();
+        page.context().browser().close();
     }
 
     @AfterTest

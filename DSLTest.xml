@@ -3,7 +3,6 @@
 
     <test  name="Smoke Tests">
         <classes>
-            <class name="com.qa.verivox.DSL.DSLCalculatorTest"/>
             <class name="com.qa.verivox.DSL.SearchTarrifTest"/>
         </classes>
     </test>

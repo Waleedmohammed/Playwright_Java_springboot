@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 public class HeaderPage {
     private HeaderActController act ;
     private HeaderVerifyController verify ;
-
     protected Page page;
 
     HeaderPage(Page page) {
@@ -24,7 +23,7 @@ public class HeaderPage {
 
     protected  String acceptCookies = "id=L2AGLb";
 
-    protected  String searchText = "id=APjFqb";
+    protected  String searchText = "id=APjFqb22";
 
     protected  String searchBtn = "//input[@class='gNO89b']";
 
