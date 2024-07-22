@@ -1,4 +1,4 @@
-package com.qa.verivox.core2;
+package com.qa.verivox.core.factory;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,7 +13,6 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
-import com.microsoft.playwright.options.Geolocation;
 import com.qa.verivox.core.conf.BrowserConfig;
 
 public class PlaywrightFactory {

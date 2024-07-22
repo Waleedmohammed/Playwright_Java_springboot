@@ -9,7 +9,7 @@ import com.microsoft.playwright.Page;
 import com.qa.verivox.core.conf.AppProperties;
 import com.qa.verivox.core.conf.BrowserConfig;
 
-import com.qa.verivox.core2.PlaywrightFactory;
+import com.qa.verivox.core.factory.PlaywrightFactory;
 
 import lombok.extern.slf4j.Slf4j;
 
