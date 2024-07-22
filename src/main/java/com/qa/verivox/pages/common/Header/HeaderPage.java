@@ -14,18 +14,14 @@ public class HeaderPage {
     }
 
     // it is private constructor to force getting page object via static method getHomePage
-    private HeaderPage(BasePage driver, HeaderActController act, HeaderVerifyController verify) {
-        this.page = driver;
+    private HeaderPage(BasePage page, HeaderActController act, HeaderVerifyController verify) {
+        this.page = page;
         this.act = act;
         this.verify = verify;
     }
 
 
-    protected  String acceptCookies = "id=L2AGLb";
-
-    protected  String searchText = "id=APjFqb";
-
-    protected  String searchBtn = "//input[@class='gNO89b']";
+    protected  String googleIcon = "//img[@class='jfN4p']";
 
     public static HeaderPage getHeader(BasePage page) {
         return new HeaderPage(page, new HeaderActController(page), new HeaderVerifyController(page));

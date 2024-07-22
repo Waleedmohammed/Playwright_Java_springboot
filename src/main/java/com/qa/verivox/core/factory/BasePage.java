@@ -1,15 +1,17 @@
 package com.qa.verivox.core.factory;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.WaitForSelectorState;
 import com.qa.verivox.core.conf.BrowserConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.nio.file.Paths;
+import java.time.Duration;
 import java.util.Base64;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
@@ -35,6 +37,7 @@ public abstract class BasePage {
 
         log.info("Starting page session...");
         page = init();
+        page.setDefaultTimeout(browserConfig.getExplicitlyWait());
     }
 
     protected abstract Page init();
@@ -99,4 +102,26 @@ public abstract class BasePage {
         }
     }
 
+    public int findElementsCountLocatedBy(String locator) {
+        page.locator(locator)
+                .waitFor(new Locator.WaitForOptions()
+                        .setState(WaitForSelectorState.VISIBLE)
+                        .setTimeout(browserConfig.getExplicitlyWait()));
+        Integer obj = (Integer) page.evalOnSelectorAll(locator, "e=> e.length");
+        log.info("There are {} elements found with xpth {}", obj, locator);
+        return obj;
+    }
+
+    public boolean isElementVisible(String locator) throws Exception {
+        try {
+            page.locator(locator).isVisible(new Locator.IsVisibleOptions()
+                    .setTimeout(browserConfig.getExplicitlyWait()));
+            log.info("Element located by " + locator + " is visible");
+            return true;
+        } catch (Exception e) {
+            log.error("Element located by " + locator + " is not visible");
+            e.printStackTrace();
+            throw new Exception("Element located by " + locator + " is not visible");
+        }
+    }
 }

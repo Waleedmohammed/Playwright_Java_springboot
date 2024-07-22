@@ -1,30 +1,37 @@
 package com.qa.verivox.DSL;
 
 import com.qa.verivox.pages.common.Header.HeaderPage;
+import com.qa.verivox.pages.common.Home.HomePage;
 
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
 
 import static com.qa.verivox.pages.common.Header.HeaderPage.getHeader;
+import static com.qa.verivox.pages.common.Home.HomePage.getHome;
 
 
 @Slf4j
-public class SearchTarrifTest extends TestBase{
+public class SearchTarrifTest extends TestBase {
 
-    HeaderPage home;
+    HomePage home;
+
+    HeaderPage headerPage;
 
     @Test
     public void TestSearch() throws Exception {
 
-        home = getHeader(super.basePage);
+        home = getHome(super.basePage);
+        headerPage = getHeader(super.basePage);
         home.act()
                 .getTitle()
                 .acceptCookies()
-                .enterSearchText("Test Plaz")
+                .enterSearchText("Test Play")
                 .clickSearchBtn();
-    }
 
+        headerPage.verify()
+                .googleIconDisplayed();
+    }
 
 
 }

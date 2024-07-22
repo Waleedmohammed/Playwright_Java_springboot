@@ -15,18 +15,4 @@ public class HeaderActController extends HeaderPage {
         return this;
     }
 
-    public HeaderActController acceptCookies() throws Exception {
-        page.clickOn(acceptCookies);
-        return this;
-    }
-
-    public HeaderActController enterSearchText(String text) throws Exception {
-        page.typeIn(searchText, text);
-        return this;
-    }
-
-    public HeaderActController clickSearchBtn() throws Exception {
-        page.clickOn(searchBtn);
-        return this;
-    }
 }
