@@ -93,8 +93,7 @@ public abstract class BasePage {
     }
 
     public void printAllRequestResponses() {
-        page.onRequest(request -> System.out.println(">> " + request.method() + " " + request.url()));
-        page.onResponse(response -> System.out.println("<< " + response.status()));
+        page.onResponse(response -> System.out.println(">> " + response.request().method() + " " + response.request().url() + " return " + response.status()));
     }
 
     public FrameLocator getFrameLocatedBy(String frameLocator) {
