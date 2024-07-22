@@ -2,7 +2,8 @@ package com.qa.verivox.core.driverUtils;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
-import com.qa.verivox.core.conf.DriverConfig;
+import com.microsoft.playwright.Playwright;
+import com.qa.verivox.core.conf.BrowserConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -33,32 +34,22 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Component
-public abstract class Driver {
+public abstract class Browser {
 
-    protected DriverConfig driverConfig;
-    protected static DriverService service;
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private WebElement elementToBePresent;
+    protected BrowserConfig browserConfig;
+    Playwright playwright;
+    Browser browser;
 
-    private List<WebElement> allElementToBePresent;
 
-    private WebElement element;
-
-    public Driver(DriverConfig driverConfig) {
-        this.driverConfig = driverConfig;
+    public Browser(BrowserConfig browserConfig) {
+        this.browserConfig = browserConfig;
     }
 
     public void start() {
-        log.info("Starting driver session...");
-        driver = init();
-        WebDriverListener listener = new DriverEventListener();
-        WebDriver webDriver = new EventFiringDecorator<>(listener).decorate(driver);
+        log.info("Starting Browser...");
+        browser = init();
 
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(driverConfig.getImplicitlyWait()));
-        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(driverConfig.getPageLoadTimeout()));
-
-        log.info("driver initialized");
+        log.info("Browser initialized");
         if (driverConfig.isMaximize()) {
             maximize();
         }
@@ -67,7 +58,7 @@ public abstract class Driver {
 
     }
 
-    protected abstract WebDriver init();
+    protected abstract Browser init();
 
 
     protected void startDriverService(DriverService.Builder builder) {
@@ -104,7 +95,7 @@ public abstract class Driver {
     }
 
     public String getTitle() {
-        String title = driver.getTitle();
+        String title = browser.getTitle();
         log.info("Title is {}", title);
         return title;
     }
