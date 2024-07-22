@@ -33,7 +33,7 @@ public abstract class BasePage {
     public void start() {
 
         String browserName = browserConfig.getName();
-        log.info("browser name is {} ", browserName);
+        log.info("Initialising browser : {} ", browserName);
 
         log.info("Starting page session...");
         page = init();
