@@ -26,7 +26,7 @@ public class APITest extends TestBase {
     public void setUp(Method method) {
         logger = report.createTest(method.getName());
         basePage = pageManager.getPage();
-        basePage.start();
+        basePage.start(contextOptions);
         statuses = basePage.getAllResponseStatus();
         basePage.printAllRequestResponses();
         response = basePage.navigate(browserConfig.getAppUrl());

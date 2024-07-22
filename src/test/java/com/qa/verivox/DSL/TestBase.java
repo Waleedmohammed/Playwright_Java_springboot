@@ -5,6 +5,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
 import com.qa.verivox.core.conf.AppProperties;
 import com.qa.verivox.core.conf.BrowserConfig;
 
@@ -22,6 +24,7 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.awt.*;
 import java.lang.reflect.Method;
 
 @Slf4j
@@ -39,6 +42,7 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
     @Autowired
     protected PageManager pageManager;
     BasePage basePage;
+    Browser.NewContextOptions contextOptions;
     public static ExtentTest logger;
     public static ExtentReports report;
 
@@ -53,9 +57,16 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
 
     @BeforeMethod
     public void setUp(Method method) {
+        // Because we are using Toolkit.getDefaultToolkit().getScreenSize() which is not supporting headless mode
+        if (!browserConfig.isHeadless()) {
+            System.setProperty("java.awt.headless", "false");
+        }
+        contextOptions = new Browser.NewContextOptions()
+                .setAcceptDownloads(true)
+                .setViewportSize((int)getCurrentScreenDimension().getWidth(),(int)getCurrentScreenDimension().getHeight());
         logger = report.createTest(method.getName());
         basePage = pageManager.getPage();
-        basePage.start();
+        basePage.start(contextOptions);
         basePage.navigate(browserConfig.getAppUrl());
     }
 
@@ -87,5 +98,9 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
     @AfterSuite
     public void afterAll() {
         basePage.quit();
+    }
+
+    private static Dimension getCurrentScreenDimension() {
+        return Toolkit.getDefaultToolkit().getScreenSize();
     }
 }

@@ -31,16 +31,16 @@ public abstract class BasePage {
     }
 
 
-    public void start() {
+    public void start(Browser.NewContextOptions context) {
         String browserName = browserConfig.getName();
         log.info("Initialising browser : {} ", browserName);
 
         log.info("Starting page session...");
-        page = init();
+        page = init(context);
         page.setDefaultTimeout(browserConfig.getExplicitlyWait());
     }
 
-    protected abstract Page init();
+    protected abstract Page init(Browser.NewContextOptions context);
 
     public static Playwright getPlaywright() {
         return tlPlaywright.get();
