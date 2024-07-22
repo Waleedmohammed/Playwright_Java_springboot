@@ -1,6 +1,7 @@
 package com.qa.verivox.core.factory;
 
 import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.LoadState;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import com.qa.verivox.core.conf.BrowserConfig;
 import lombok.extern.slf4j.Slf4j;
@@ -104,6 +105,7 @@ public abstract class BasePage {
         try {
             page.click(locator);
             log.info("Element located by " + locator + " is succesfully clicked");
+            page.waitForLoadState(LoadState.LOAD);
         } catch (Exception e) {
             log.error("Cannot click element located by " + locator);
             e.printStackTrace();
@@ -266,6 +268,28 @@ public abstract class BasePage {
         Download download = page.waitForDownload(() -> page.click(downloadBtnLocator));
         Path path = download.path();
         log.info("File downloaded to {}", path);
+    }
+
+    public void uploadOneFile(String uploadBtnLocator, File fileToUpload) throws Exception {
+
+        try {
+            page.setInputFiles(uploadBtnLocator, Paths.get(fileToUpload.toURI()));
+            log.info("File {} selected ....", fileToUpload);
+        } catch (Exception e) {
+            log.info("File {} can not be selected ....", fileToUpload);
+            e.printStackTrace();
+            throw new Exception("File " + fileToUpload + " can not be selected ....");
+        }
+    }
+
+    public void revertUploadOneFile(String uploadBtnLocator) throws Exception {
+
+        try {
+            page.setInputFiles(uploadBtnLocator, new Path[0]);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("File reverted from upload ....");
+        }
     }
 
 }

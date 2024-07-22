@@ -26,6 +26,7 @@ public class WebFirFoxPage extends BasePage {
                 .setStrictSelectors(false)
                 .setJavaScriptEnabled(true)
                 .setLocale("")
+                .setViewportSize(1920, 1080)
                 .setTimezoneId("")));
         tlPage.set(getBrowserContext().newPage());
         return getPage();
