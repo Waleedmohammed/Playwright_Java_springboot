@@ -19,9 +19,7 @@ public abstract class BasePage {
     protected static ThreadLocal<BrowserContext> tlBrowserContext = new ThreadLocal<>();
     protected static ThreadLocal<Page> tlPage = new ThreadLocal<>();
     protected static ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
-
     protected BrowserConfig browserConfig;
-
     private Page page;
 
 

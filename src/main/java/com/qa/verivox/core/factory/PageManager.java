@@ -11,7 +11,7 @@ import java.util.List;
 @Slf4j
 @Component
 public class PageManager {
-    private List<BasePage> drivers = Collections.synchronizedList(new ArrayList<>());
+    private List<BasePage> pages = Collections.synchronizedList(new ArrayList<>());
     private BrowserConfig config;
 
     public PageManager(BrowserConfig config) {
@@ -24,13 +24,13 @@ public class PageManager {
 
     public BasePage getPage(String name) {
         BasePage driver = PageFactory.fromValue(name).getPage(config);
-        drivers.add(driver);
+        pages.add(driver);
         return driver;
     }
 
     public void quitAllDrivers() {
-        drivers.forEach((BasePage::quit));
-        drivers.clear();
+        pages.forEach((BasePage::quit));
+        pages.clear();
     }
 }
 
