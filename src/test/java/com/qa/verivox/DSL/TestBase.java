@@ -39,8 +39,8 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
     @Autowired
     protected PageManager pageManager;
     BasePage basePage;
-    private static ExtentTest logger;
-    private static ExtentReports report;
+    public static ExtentTest logger;
+    public static ExtentReports report;
 
     @BeforeTest
     public void initReport() {

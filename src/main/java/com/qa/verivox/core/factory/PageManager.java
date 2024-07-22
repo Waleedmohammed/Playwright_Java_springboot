@@ -23,12 +23,12 @@ public class PageManager {
     }
 
     public BasePage getPage(String name) {
-        BasePage driver = PageFactory.fromValue(name).getPage(config);
-        pages.add(driver);
-        return driver;
+        BasePage page = PageFactory.fromValue(name).getPage(config);
+        pages.add(page);
+        return page;
     }
 
-    public void quitAllDrivers() {
+    public void quitAllPages() {
         pages.forEach((BasePage::quit));
         pages.clear();
     }

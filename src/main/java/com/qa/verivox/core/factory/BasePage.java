@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -62,9 +64,10 @@ public abstract class BasePage {
         }
     }
 
-    public void navigate(String url) {
-        page.navigate(url);
+    public Response navigate(String url) {
+        Response response = page.navigate(url);
         log.info("opened {}", url);
+        return response;
     }
 
     public String takeScreenshot() {
@@ -81,6 +84,16 @@ public abstract class BasePage {
         String title = page.title();
         log.info("Title is {}", title);
         return title;
+    }
+
+    public List<Integer> getAllResponseStatus() {
+        List<Integer> statuses = new ArrayList<>();
+        page.onResponse(response -> statuses.add(response.status()));
+        return statuses;
+    }
+
+    public FrameLocator getFrameLocatedBy(String frameLocator) {
+        return page.frameLocator(frameLocator);
     }
 
     public void clickOn(String locator) throws Exception {

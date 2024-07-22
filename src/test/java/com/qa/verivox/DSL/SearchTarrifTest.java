@@ -23,6 +23,7 @@ public class SearchTarrifTest extends TestBase {
 
         home = getHome(super.basePage);
         headerPage = getHeader(super.basePage);
+
         home.act()
                 .getTitle()
                 .acceptCookies()
